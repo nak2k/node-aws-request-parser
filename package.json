@@ -1,0 +1,36 @@
+{
+  "name": "aws-request-parser",
+  "version": "0.0.1",
+  "description": "Parse requests of AWS API",
+  "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/nak2k/node-aws-request-parser/issues"
+  },
+  "dependencies": {
+    "call-initializer": "0.0.2"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.268.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "tape": "^4.9.1"
+  },
+  "homepage": "https://github.com/nak2k/node-aws-request-parser",
+  "keywords": [
+    "aws"
+  ],
+  "license": "MIT",
+  "main": "lib",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nak2k/node-aws-request-parser.git"
+  },
+  "scripts": {
+    "prepublishOnly": "npm t",
+    "test": "tape test/test*.js"
+  },
+  "files": [
+    "README.md",
+    "lib/"
+  ]
+}
