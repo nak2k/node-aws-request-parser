@@ -8,7 +8,11 @@ exports.server = (options, callback) => {
   const app = express();
 
   app.use(bodyParser.text({
-    type: '*/*',
+    type: 'binary/octet-stream',
+  }));
+
+  app.use(bodyParser.urlencoded({
+    extended: true,
   }));
 
   awsRequestParser(options)(app)(err => {
@@ -22,14 +26,20 @@ exports.server = (options, callback) => {
         logger: console,
       });
 
-      const serviceMap = {
-        lambda: 'lambda',
-      };
+      Object.values(AWS).forEach(({ serviceIdentifier: id }) => {
+        if (id === undefined) {
+          return;
+        }
 
-      Object.entries(serviceMap).forEach(([service, id]) => {
-        AWS.config[service] = {
+        const config = {
           endpoint: `http://${address}:${port}/api/${id}`,
         };
+
+        if (id === 's3') {
+          config.s3ForcePathStyle = true;
+        }
+
+        AWS.config[id] = config;
       });
 
       callback(null, AWS);
@@ -55,6 +65,6 @@ exports.dumpRes = ({
     statusCode,
     statusMessage,
     headers,
-    body: body.toString(), 
+    body: body && body.toString(),
   });
 };
