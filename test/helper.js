@@ -24,6 +24,7 @@ exports.server = (options, callback) => {
       AWS.config.update({
         region: 'us-west-2',
         logger: console,
+        maxRetries: 0,
       });
 
       Object.values(AWS).forEach(({ serviceIdentifier: id }) => {
