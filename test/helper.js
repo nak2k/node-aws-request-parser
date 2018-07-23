@@ -1,19 +1,10 @@
 const AWS = require('aws-sdk');
 const { createServer } = require('http');
 const express = require('express');
-const bodyParser = require('body-parser');
 const { awsRequestParser } = require('..');
 
 exports.server = (options, callback) => {
   const app = express();
-
-  app.use(bodyParser.text({
-    type: 'binary/octet-stream',
-  }));
-
-  app.use(bodyParser.urlencoded({
-    extended: true,
-  }));
 
   awsRequestParser(options)(app)(err => {
     const server = createServer(app);
