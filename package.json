@@ -1,6 +1,6 @@
 {
   "name": "aws-request-parser",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Parse requests of AWS API",
   "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
   "bugs": {
