@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk');
-const { getServices } = require('../lib/getServices');
+const { getServices } = require('./util');
 
 const services = getServices(AWS);
 
