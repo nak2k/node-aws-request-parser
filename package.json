@@ -11,8 +11,8 @@
     "call-initializer": "0.0.2"
   },
   "devDependencies": {
-    "aws-sdk": "^2.268.1",
-    "express": "^4.16.3",
+    "aws-sdk": "^2.373.0",
+    "express": "^4.16.4",
     "tape": "^4.9.1"
   },
   "homepage": "https://github.com/nak2k/node-aws-request-parser",
